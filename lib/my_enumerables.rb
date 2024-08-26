@@ -13,4 +13,10 @@ class Array
     end
   end
 
+  def my_each_with_index
+    index = -1 
+    for item in self
+      yield(item, index += 1)
+    end
+  end
 end

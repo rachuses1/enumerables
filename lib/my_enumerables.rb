@@ -19,4 +19,17 @@ class Array
       yield(item, index += 1)
     end
   end
+
+  def my_count
+    count = 0
+    if !block_given?
+      self.size
+    else
+      for item in self
+        if yield == true
+          count += 1
+        end
+      end
+    end
+  end
 end

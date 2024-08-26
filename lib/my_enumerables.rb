@@ -7,6 +7,15 @@ end
 # your enumerable module will have access
 # to this method
 class Array
+
+  def my_map
+    calculated = []
+    for item in self
+      calculated << yield(item)
+    end
+    p calculated
+  end
+
   def my_each
     for item in self
       yield(item)

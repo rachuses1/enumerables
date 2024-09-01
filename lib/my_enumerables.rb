@@ -8,6 +8,15 @@ end
 # to this method
 class Array
 
+  def my_none?
+    for item in self
+      if yield(item) == true
+        return false
+      end
+    end
+    return true
+  end
+
   def my_any?
     for item in self
       if yield(item) == true

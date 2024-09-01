@@ -8,6 +8,16 @@ end
 # to this method
 class Array
 
+  def my_any?
+    for item in self
+      if yield(item) == true
+        return true
+      end
+    end
+    return false
+  end
+
+
   def my_select
     produce = []
     for item in self

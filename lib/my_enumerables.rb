@@ -8,6 +8,29 @@ end
 # to this method
 class Array
 
+  def my_inject(num)
+
+    for item in self
+      num = yield(num, item)
+    end
+    
+    return num
+
+
+  end
+
+  def my_all?
+    for item in self
+      result = yield(item)
+     if result == false
+        return false
+      end    
+  
+    end
+    return true
+  end
+
+
   def my_map
     calculated = []
     for item in self
@@ -30,15 +53,21 @@ class Array
   end
 
   def my_count
-    count = 0
-    if !block_given?
-      self.size
-    else
+
+    if block_given?
+      count = 0
       for item in self
-        if yield == true
+        if yield(item) == true
           count += 1
         end
       end
+  
+    else
+     count= self.size
     end
+    
+    return count
   end
+
+
 end

@@ -8,6 +8,17 @@ end
 # to this method
 class Array
 
+  def my_select
+    produce = []
+    for item in self
+      if yield(item) == true
+        produce << item
+      end
+    end
+    return produce
+  end
+
+
   def my_inject(num)
 
     for item in self
